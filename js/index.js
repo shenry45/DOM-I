@@ -44,11 +44,24 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 
 // populate nav links
+const navParent = document.querySelector('nav');
+
+const newAnchor = document.createElement('a');
+newAnchor.textContent = 'Social';
+newAnchor.style.fontStyle = 'italic';
+
 const nav = document.querySelectorAll('nav a');
+
 
 for (let i = 0; i < nav.length; i++) {
   nav[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+
+  // nav text color change to green
+  nav[i].style.color = "green";
 };
+
+navParent.appendChild(newAnchor);
+
 
 // populate cta content
 const ctaH1 = document.querySelector('.cta-text h1');

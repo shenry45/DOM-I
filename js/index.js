@@ -61,6 +61,7 @@ document.getElementById('cta-img').setAttribute('src','img/header-img.png');
 
 // populate top-content
 const topCont = document.querySelectorAll('.top-content .text-content');
+
 topCont[0].children[0].textContent = 'FEATURES';
 topCont[0].children[1].textContent = 'Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
 
@@ -68,3 +69,44 @@ topCont[1].children[0].textContent = 'ABOUT';
 topCont[1].children[1].textContent = 'About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
 
 document.getElementById('middle-img').src ='img/mid-page-accent.jpg';
+
+// populate bottom-content
+const bottomCont = document.querySelectorAll('.bottom-content .text-content');
+
+const bottomContObj = {
+  0: {
+    heading: 'SERVICES',
+    p: 'Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.'
+  },
+  1: {
+    heading: 'PRODUCT',
+    p: 'Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.'
+  },
+  2: {
+    heading: 'VISION',
+    p: 'Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.'
+  }
+};
+
+for (let i = 0; i < bottomCont.length; i++) {
+  bottomCont[i].children[0].textContent = bottomContObj[i].heading
+
+  bottomCont[i].children[1].textContent = bottomContObj[i].p
+}
+
+// populate contact information
+document.querySelector('.contact h4').textContent = 'CONTACT';
+
+const contactPTag = document.querySelectorAll('.contact p');
+
+const contactInfo = ['123 Way 456 Street<br>Somewhere, USA', '1 (888) 888-8888','sales@greatidea.io'];
+
+console.log(contactPTag);
+
+for (let i = 0; i < contactPTag.length; i++) {
+  contactPTag[i].innerHTML = contactInfo[i];
+}
+
+// populate copyright tag
+const footer = document.getElementsByTagName('footer');
+footer[0].textContent = "Copyright Great Idea! 2018";

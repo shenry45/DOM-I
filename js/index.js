@@ -40,3 +40,31 @@ const siteContent = {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+
+
+// populate nav links
+const nav = document.querySelectorAll('nav a');
+
+for (let i = 0; i < nav.length; i++) {
+  nav[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+};
+
+// populate cta content
+const ctaH1 = document.querySelector('.cta-text h1');
+ctaH1.textContent = "DOM IS AWESOME";
+
+const ctaBtn = document.querySelector('.cta-text button');
+ctaBtn.textContent = "Get Started";
+
+document.getElementById('cta-img').setAttribute('src','img/header-img.png');
+
+// populate top-content
+const topCont = document.querySelectorAll('.top-content .text-content');
+topCont[0].children[0].textContent = 'FEATURES';
+topCont[0].children[1].textContent = 'Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+
+topCont[1].children[0].textContent = 'ABOUT';
+topCont[1].children[1].textContent = 'About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
+
+document.getElementById('middle-img').src ='img/mid-page-accent.jpg';

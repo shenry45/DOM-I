@@ -46,21 +46,30 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 // populate nav links
 const navParent = document.querySelector('nav');
 
+const navFill = () => {
+  const nav = document.querySelectorAll('nav a');
+
+  for (let i = 0; i < nav.length; i++) {
+    nav[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
+
+    // nav text color change to green
+    nav[i].style.color = "green";
+  };
+}
+
 const newAnchor = document.createElement('a');
-newAnchor.textContent = 'Social';
+const newAnchor2 = document.createElement('a');
+
 newAnchor.style.fontStyle = 'italic';
-
-const nav = document.querySelectorAll('nav a');
-
-
-for (let i = 0; i < nav.length; i++) {
-  nav[i].textContent = siteContent["nav"][`nav-item-${i+1}`];
-
-  // nav text color change to green
-  nav[i].style.color = "green";
-};
+newAnchor.style.color = "green";
 
 navParent.appendChild(newAnchor);
+navParent.prepend(newAnchor2);
+
+navFill();
+
+newAnchor.textContent = 'Social';
+
 
 
 // populate cta content
@@ -72,6 +81,8 @@ ctaBtn.textContent = "Get Started";
 
 document.getElementById('cta-img').setAttribute('src','img/header-img.png');
 
+
+
 // populate top-content
 const topCont = document.querySelectorAll('.top-content .text-content');
 
@@ -82,6 +93,8 @@ topCont[1].children[0].textContent = 'ABOUT';
 topCont[1].children[1].textContent = 'About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
 
 document.getElementById('middle-img').src ='img/mid-page-accent.jpg';
+
+
 
 // populate bottom-content
 const bottomCont = document.querySelectorAll('.bottom-content .text-content');
@@ -107,6 +120,8 @@ for (let i = 0; i < bottomCont.length; i++) {
   bottomCont[i].children[1].textContent = bottomContObj[i].p
 }
 
+
+
 // populate contact information
 document.querySelector('.contact h4').textContent = 'CONTACT';
 
@@ -119,6 +134,8 @@ console.log(contactPTag);
 for (let i = 0; i < contactPTag.length; i++) {
   contactPTag[i].innerHTML = contactInfo[i];
 }
+
+
 
 // populate copyright tag
 const footer = document.getElementsByTagName('footer');

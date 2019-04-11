@@ -56,6 +56,12 @@ const navFill = () => {
     nav[i].style.color = "green";
   };
 }
+const header = document.getElementsByTagName('header');
+header[0].style.position = 'sticky';
+header[0].style.top = '0';
+header[0].style.backgroundColor = '#fff';
+header[0].style.paddingBottom = '20px';
+header[0].style.borderBottom = '2px solid #000';
 
 const newAnchor = document.createElement('a');
 const newAnchor2 = document.createElement('a');
@@ -64,11 +70,11 @@ newAnchor.style.fontStyle = 'italic';
 newAnchor.style.color = "green";
 
 navParent.appendChild(newAnchor);
-navParent.prepend(newAnchor2);
 
 navFill();
 
 newAnchor.textContent = 'Social';
+navParent.prepend(newAnchor2);
 
 
 
@@ -92,7 +98,9 @@ topCont[0].children[1].textContent = 'Features content elementum magna eros, ac 
 topCont[1].children[0].textContent = 'ABOUT';
 topCont[1].children[1].textContent = 'About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.';
 
-document.getElementById('middle-img').src ='img/mid-page-accent.jpg';
+const midImg = document.getElementById('middle-img');
+midImg.src ='img/mid-page-accent.jpg';
+midImg.style.borderRadius = '20px 0 20px 0';
 
 
 
@@ -140,3 +148,67 @@ for (let i = 0; i < contactPTag.length; i++) {
 // populate copyright tag
 const footer = document.getElementsByTagName('footer');
 footer[0].textContent = "Copyright Great Idea! 2018";
+
+
+/* ---------------
+STYLE UPDATES
+----------------*/
+const headerTags = document.getElementsByTagName('h4');
+Array.from(headerTags).forEach(el => {
+  el.style.fontSize = '1.5em';
+});
+
+// insert party button
+const partyHolder = document.createElement('div');
+partyHolder.style.cursor = 'pointer';
+partyHolder.style.position = 'fixed';
+partyHolder.style.left = '0';
+partyHolder.style.top = '50%';
+partyHolder.style.padding = '15px';
+partyHolder.style.width = '125px';
+
+const partyBtn = document.createElement('button');
+partyBtn.textContent = 'Join the Party!';
+partyBtn.style.backgroundColor = 'aqua';
+partyBtn.style.borderRadius = '0 10px 10px 0';
+partyBtn.style.padding = '10px';
+partyBtn.style.marginBottom = '15px';
+
+const resetBtn = document.createElement('button');
+resetBtn.textContent = 'Reset';
+resetBtn.style.borderRadius = '0 10px 10px 0';
+resetBtn.style.padding = '10px';
+
+document.body.prepend(partyHolder);
+partyHolder.appendChild(partyBtn);
+
+const randColor = () => {
+  const numHolder = ['#'];
+  
+  for (let i = 0; i < 6; i++){
+    const random = Math.floor(Math.random()*10);
+
+    numHolder.push(random);
+  }
+  
+  return numHolder.join('');
+}
+
+const seeReset = document.getElementsByClassName('reset');
+
+partyBtn.addEventListener('click', () => {
+  document.body.style.backgroundColor = randColor();
+  partyBtn.textContent = 'KEEP CLICKING ME :D'
+  
+
+  const seeReset = document.getElementsByClassName('reset');
+  if (seeReset.length === 0) {
+    partyHolder.appendChild(resetBtn);
+  }
+});
+
+resetBtn.addEventListener('click', () => {
+  document.body.style.backgroundColor = '#fff';
+  partyHolder.removeChild(resetBtn);
+  partyBtn.textContent = 'Join the Party!';
+})
